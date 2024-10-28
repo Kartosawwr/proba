@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор індексу патогенності В.Бокші</title>
+    <link rel="stylesheet" href="style.css"> <!-- Підключення стилів -->
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор індексу патогенності В.Бокші</h1>
+        <form id="calculator-form">
+            <div class="input-group">
+                <label for="temp">Температура (°C):</label>
+                <input type="number" id="temp" step="0.1" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="humidity">Вологість (%):</label>
+                <input type="number" id="humidity" step="0.1" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="wind">Швидкість вітру (м/с):</label>
+                <input type="number" id="wind" step="0.1" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="delta_temp">Перепад температури (°C):</label>
+                <input type="number" id="delta_temp" step="0.1" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="delta_press">Перепад тиску (гПа):</label>
+                <input type="number" id="delta_press" step="0.1" required>
+            </div>
+
+            <button type="button" onclick="bokshaIndex()">Розрахувати</button>
+        </form>
+        
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script> <!-- Підключення JavaScript -->
+</body>
+</html>

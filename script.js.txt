@@ -1,0 +1,30 @@
+// script.js
+function bokshaIndex() {
+    // Отримуємо значення з форми
+    var t = parseFloat(document.getElementById("temp").value);
+    var f = parseFloat(document.getElementById("humidity").value);
+    var v = parseFloat(document.getElementById("wind").value);
+    var delta_t = parseFloat(document.getElementById("delta_temp").value);
+    var delta_p = parseFloat(document.getElementById("delta_press").value);
+    
+    // Патогенність температури
+    var it = (t <= 18) ? 0.02 * Math.pow(18 - t, 2) : 0.2 * Math.pow(t - 18, 2);
+    
+    // Патогенність вологості
+    var if_ = (f - 70) / 2;
+    
+    // Патогенність вітру
+    var iv = 0.2 * Math.pow(v, 2);
+    
+    // Патогенність зміни температури
+    var i_delta_t = 0.3 * Math.pow(delta_t, 2);
+    
+    // Патогенність зміни тиску
+    var i_delta_p = 0.06 * Math.pow(delta_p, 2);
+    
+    // Сумарний індекс
+    var I_sum = it + if_ + iv + i_delta_t + i_delta_p;
+    
+    // Виведення результату
+    document.getElementById("result").innerHTML = "Сумарний індекс патогенності: " + I_sum.toFixed(2);
+}
